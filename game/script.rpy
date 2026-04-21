@@ -1,38 +1,37 @@
 ﻿define H = Character("Hina")
 define A = Character("Airi")
 
-image bg hina_room:
-    "images/bg hina_room.jpg"
-    size (1920, 1080)
-
-image bg airi_room:
-    "images/bg airi_room.jpg"
-    size (1920, 1080)
-
-image bg daylight:
-    "images/bg daylight.jpg"
-    size (1920, 1080)
-
 define centerOffsetLeft = Position(xpos=0.6)
 define centerMoreOffsetLeft = Position(xpos=0.58)
 define droppedCenterOffsetLeft = Position(xpos=0.6, ypos=1.1)
 define droppedLeft = Position(xpos=1, ypos=1.1)
 
+transform new:
+    fit "contain"
+    xysize (900,900)
+    xoffset 0
+
+transform standard:
+    fit "contain"
+    xysize (1000,1000)
+    xoffset 38
+
+transform bg_standard:
+    fit "cover"
+    size (1920, 1080)
+
 label start:
-    jump homestay
     play music "audio/bgm_hina_room.mp3" volume 0.5
-    scene bg hina_room with fade
+    scene bg hina_room at bg_standard with fade
     "The clock strikes midnight"
     "July 26, 00:00."
     "Hina's birthday."
     "A bright message flashes on Hina's phone."
-    show hina stand_1_2 at center with easeinleft:
-        zoom 0.8
+    show hina stand_1_2 at standard, center with easeinleft
     H "A notification?"
     "Hina glances over at her screen. The text reads..."
     hide hina stand_1_2 with easeoutleft
-    show airi cross_1_2 at center with easeinright:
-        zoom 0.8
+    show airi cross_1_2 at standard, center with easeinright
     A "Hina, Happy birthday!"
     A "Sorry, we haven't been able to spend much time together recently! How about today we go out on a date to celebrate? ⭐︎"
     hide airi cross_1_2 with easeoutright
@@ -52,7 +51,7 @@ label start:
 
 label daylight:
 
-    scene bg daylight with fade
+    scene bg daylight at bg_standard with fade
     play music "audio/bgm_daylight.mp3" volume 0.4
     show hina stand_1_2 at left with easeinleft:
         zoom 0.8
@@ -94,32 +93,30 @@ label homestay:
     show airi think_1_3 at right with dissolve:
         zoom 0.8
     "There goes Airi's plans to acquire Hina's present. She's in a pinch!"
-    show airi think_1_4 at right with dissolve:
-        zoom 0.8
-    A "Well, my house is also nearby. Do you want to come over? ♡"
+    H "Well, my house is also nearby. Do you want to come over?"
     show hina stand_1_3 at left with dissolve:
         zoom 0.8
-    H "Eh? Is that okay?"
-    A "Of course. Once we get there, we can spend the time however we want."
-    show hina stand_1_1 at left with dissolve:
+    A "Is that okay?"
+    H "Of course. Once we get there, we can spend the time however we want."
+    show airi think_1_1 at right with dissolve:
         zoom 0.8
-    H "???"
-    show airi stand_1_8 at right with dissolve:
+    A "???"
+    show hina stand_1_3 at left with dissolve:
         zoom 0.8
-    A "Haha, forget that. Let's just get going."
+    H "Haha, forget that. Let's just get going."
     
-    scene bg airi_room with fade
+    scene bg hina_room_day at bg_standard with fade
     # Find music
 
     show hina stand_1_4 at left with easeinright:
         zoom 0.8
     show airi cross_1_1 at right with easeinright:
         zoom 0.8
-    H "Pardon for intruding!"
-    A "No need to be so uptight. Come sit."
+    A "Pardon for intruding!"
+    H "No need to be so uptight. Come sit."
     show airi cross_1_2 at right with dissolve:
         zoom 0.8
-    A "I'll go get us something to drink."
+    A "You must be tired from being in the heat. I'll pour us some water."
     H "Okay!"
     hide airi cross_1_2 with easeoutright
     show hina stand_1_2 at left with dissolve:
@@ -129,7 +126,7 @@ label homestay:
 
     menu:
         "Look around the room":
-            scene bg hina_room with fade # Change to photograph later
+            scene bg photo at bg_standard with fade # Change to photograph later
             H "Oh? What's this?"
             H "How nostalgic…"
             H "I remember when Airi and I first went to the beach…"
@@ -137,7 +134,7 @@ label homestay:
             H "Ai-chan, how I wish we could go back."
             "The door clicks."
 
-    scene bg airi_room with fade
+    scene bg hina_room_day at bg_standard with fade
     show hina stand_1_2 at left:
         zoom 0.8
     show airi stand_1_3 at right with easeinright:
@@ -219,43 +216,42 @@ label homestay:
     show hina stand_1_5 zorder 10 at droppedLeft with dissolve
     H "It's not what it looks like-"
     A "Is that so?"
+    hide airi cross_1_1
+    hide hina stand_1_5
+    scene bg closeness_1 at bg_standard
     "Airi reaches her hand out to caress Hina, just to see her reaction."
     "She didn't exactly know how to feel about all this, but she did know that she found it cute how much Hina seemed to need her presence."
-    show airi think_1_2 at droppedCenterOffsetLeft with dissolve:
-        zoom 0.8
+    scene bg closeness_2 at bg_standard
     A "Did I misunderstand?"
     H "…!"
-    show airi cross_1_1 at centerOffsetLeft with dissolve:
-        zoom 0.8
     A "I'll take that as a no."
+    scene bg closeness_9 at bg_standard
     "For a second, the air felt light."
-    show hina stand_1_2 zorder 10 at droppedLeft with dissolve:
-        zoom 0.8
     "Hina felt as if her dream had come true."
-    show airi stand_1_3 at centerMoreOffsetLeft with dissolve:
-        zoom 0.8
     "Airi inches her face close to Hina's…"
-    show airi stand_1_3 at center with dissolve:
-        zoom 0.8
+    scene bg closeness_2 at bg_standard
     "…only to pull it away."
+    scene bg closeness_4 at bg_standard
     "Hina's face flushes."
-    show airi stand_1_5 at center with dissolve:
-        zoom 0.8
     A "Ahaha! What were you thinking just now?"
-    show hina stand_1_5 zorder 10 at droppedLeft with dissolve:
-        zoom 1.0
     "Hina grumbles."
+    scene bg closeness_6 at bg_standard
     H "Ai-chan, don't play with me like that!"
-    show airi stand_1_3 at left with dissolve:## temp
-        zoom 0.8
+    scene bg closeness_8 at bg_standard
     A "I don't know what you mean…"
-    show airi think_1_6 at left with dissolve:## temp
+    menu:
+        "Breakpoint":
+            "hi"
+    scene bg hina_room_day at bg_standard
+    show hina stand_1_5 at left with dissolve ### This is bugged and have to settle with basic positioning instead of dropped for haircut
+    show airi cross_1_1 at right with dissolve:
         zoom 0.8
     "Airi lies back and searches for a 'better' song on Hina's phone."
     "The tune plays until the completion of Hina's hairdo — it falls with a sudden stop."
     show airi cross_1_3 at right with dissolve:
         zoom 0.8
-    show hina stand_1_2 at left with dissolve
+    show hina stand_1_2 at left with dissolve:
+        zoom 0.8
     A "Haah! I'm bored. Think of something you want to do, Hina."
     "Hina wants to get closer to Airi."
     "Give her an experience where she's closer than she's been with anyone else."
@@ -289,9 +285,11 @@ label homestay:
     show hina stand_1_4 at left with dissolve:
         zoom 0.8
     H "Mhm!"
+    hide airi cross_1_2 with easeoutright
 
-    # bg change 
+    scene bg store
 
+    # working from here
     "Supermarket Airi is ready to buy eggs."
     "Oho? But what's this?"
     "Sheep plushies. On sale for 15 percent off."
