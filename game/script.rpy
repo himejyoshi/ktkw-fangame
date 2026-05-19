@@ -54,7 +54,7 @@ label start:
     jump daylight
 
 label daylight:
-
+    play music "audio/bgm_daylight.mp3" volume 0.5
     scene bg daylight at bg_standard with fade
     show hina stand_1_2 at standard, left with easeinleft
     ""
@@ -85,7 +85,7 @@ label daylight:
             jump beach
 
 label homestay:
-
+    play music "audio/bgm_daylight.mp3" volume 0.5
     H "Actually, I might have to after all."
     show airi think_1_3 at standard, right with dissolve
     "There goes Airi's plans to acquire Hina's present. She's in a pinch!"
@@ -346,6 +346,7 @@ label homestay:
             jump homestay_bad
 
 label homestay_good:
+    play music "audio/bgm_daylight.mp3" volume 0.5
     show hina cross_1_14 at new, left with dissolve
     H "Ai-chan, wait-"
     show airi stand_1_3 at standard, right with dissolve
@@ -393,6 +394,7 @@ label homestay_good:
     return
 
 label homestay_bad:
+    play music "audio/bgm_daylight.mp3" volume 0.5
     show hina cross_1_5 at new, left with dissolve
     H "...yeah. Thanks for today, Ai-chan."
     show airi think_1_4 at standard, right with dissolve
@@ -419,6 +421,7 @@ label homestay_bad:
     return
 
 label beach:
+    play music "audio/bgm_daylight.mp3" volume 0.5
     show hina cross_1_5 at new, left with dissolve
     H "It's okay, I'm fine. I've been wanting to enjoy the summer atmosphere together with Ai-chan."
     show airi cross_1_1 at standard, right with dissolve
@@ -611,24 +614,20 @@ label beach:
     H "I like holding onto the memories I made with you."
     "The roaring of the high-tide thins out the suffocating silence between the two."
 
-    show hina stand_1_15 at new, left with dissolve
-    show airi stand_1_6 at standard, right with dissolve
+    scene bg airi_sunset at bg_standard with fade
+
     "For a moment, ocean breeze flows around Airi in just the right way."
     "She looked breathtaking in the soft gleam of the sunset, especially to Hina."
     "Hina takes out her phone, placing Airi in the center of the camera frame."
-    show airi stand_1_5 at standard, right with dissolve
     "Airi notices, turning to face the lens, striking a cute pose."
-
-    show hina stand_1_16 at new, left with dissolve
     H "Smile!"
-
-    show hina stand_1_15 at new, left with dissolve
     "Click. Hina takes the photo. Another memory engraved in stone."
     "Just like the other photos she has of Airi, she will hold this one close to her heart."
-    show hina stand_1_5 at new, left with dissolve
     "This is the only way Hina knows how to feel close to Airi, minimizing the pain caused by the rift between them at school."
-    show hina stand_1_8 at new, left with dissolve
     "Still, the crushing anxiety of returning to their distant relationship crumpled up Hina's face."
+
+    scene bg sunset at bg_standard with fade
+
     show hina stand_1_8 at new, left with dissolve
     show airi think_1_10 at standard, right with dissolve
     "Airi couldn't help but feel pity toward such a sight."
@@ -669,7 +668,7 @@ label beach:
     show hina stand_1_15 at new, left with dissolve
     H "Mhm…"
 
-    scene bg beach_end at bg_standard with fade
+    scene black at bg_standard with fade
     "Beach end - an eternal 'promise' from me to you."
 
     return
