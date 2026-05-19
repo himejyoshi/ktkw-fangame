@@ -56,7 +56,6 @@ label start:
 label daylight:
 
     scene bg daylight at bg_standard with fade
-    play music "audio/bgm_daylight.mp3" volume 0.4
     show hina stand_1_2 at standard, left with easeinleft
     ""
     A "Hina!"
@@ -100,7 +99,6 @@ label homestay:
     H "Haha, forget that. Let's just get going."
     
     scene bg hina_room_day at bg_standard with fade
-    play music "audio/bgm_hina_room_day.mp3" volume 0.5
     show hina stand_1_2 at standard, left with easeinright
     show airi cross_1_1 at standard, right with easeinright
     A "Pardon for intruding!"
@@ -190,7 +188,6 @@ label homestay:
     H "It's not what it looks like-"
     A "Is that so?"
 
-    play music "audio/bgm_closeness.mp3" volume 0.5
     scene bg closeness_1 at bg_standard with fade
     "Airi reaches her hand out to caress Hina, just to see her reaction."
     "She didn't exactly know how to feel about all this, but she did know that she found it cute how much Hina seemed to need her presence."
@@ -213,7 +210,6 @@ label homestay:
     scene bg closeness_8 at bg_standard
     A "I don't know what you mean…"
     scene bg hina_room_day at bg_standard with fade
-    play music "audio/bgm_hina_room_day.mp3" volume 0.5
     show hina stand_1_10 at new, left with dissolve ### This is bugged and have to settle with basic positioning instead of dropped for haircut
     show airi cross_1_1 at standard, right with dissolve
     "Airi lies back and searches for a 'better' song on Hina's phone."
@@ -270,7 +266,6 @@ label homestay:
     H "Thank you, Ai-chan!!!"
     "Hina goes to hug Airi."
 
-    play music "audio/bgm_closeness.mp3" volume 0.5
     scene bg closeness_9 at bg_standard with fade
     A "Hina…"
     A "Don't get so close all of a sudden…"
@@ -293,7 +288,6 @@ label homestay:
     "Hina faints."
 
     scene bg hina_room_day at bg_standard with fade
-    play music "audio/bgm_hina_room_day.mp3" volume 0.5
     show airi think_1_1 at standard, center with dissolve
     A "Oh dear."
     A "Are you okay, Hina?"
@@ -323,7 +317,6 @@ label homestay:
     A "The pancakes are done."
 
     scene bg kitchen at bg_standard with fade
-    play music "audio/bgm_hina_room.mp3" volume 0.5 # reusing bgm
     show airi cross_1_1 at standard, right with dissolve
     show hina stand_1_2 at standard, left with dissolve
     "Airi brings a fork with a piece of pancake up to Hina's mouth."
@@ -440,7 +433,6 @@ label beach:
     H "Mhm! Sounds fun."
 
     scene bg park at bg_standard with fade
-    play music "audio/bgm_park.mp3" volume 0.5
 
     show hina think_1_10 at new, left with easeinright
     show airi cross_1_7 at standard, right with easeinright
@@ -507,7 +499,6 @@ label beach:
     A "Let's stop at a cafe."
 
     scene bg cafe at bg_standard with fade
-    play music "audio/bgm_cafe.mp3" volume 0.5
     
     show airi stand_1_5 at standard, right with easeinright
     show hina stand_1_1 at standard, left with easeinright
@@ -547,7 +538,6 @@ label beach:
     H "I do!"
 
     scene bg sunset at bg_standard with fade
-    play music "audio/bgm_beach.mp3" volume 0.3
 
     show hina cross_1_4 at new, left with easeinright
     H "Haah~! The breeze feels so nice…"
