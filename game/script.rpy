@@ -8,6 +8,9 @@ define droppedLeft = Position(xpos=1, ypos=1.1)
 transform up:
     ypos 0.8
 
+transform moreUp:
+    ypos 0.7
+
 transform new:
     fit "contain"
     xysize (900,900)
@@ -80,7 +83,7 @@ label daylight:
         "Stay home":
             jump homestay
         "Go out anyway":
-            jump outdoors
+            jump beach
 
 label homestay:
 
@@ -97,11 +100,11 @@ label homestay:
     H "Haha, forget that. Let's just get going."
     
     scene bg hina_room_day at bg_standard with fade
-    # Find music
+    play music "audio/bgm_hina_room_day.mp3" volume 0.5
     show hina stand_1_2 at standard, left with easeinright
     show airi cross_1_1 at standard, right with easeinright
     A "Pardon for intruding!"
-    show hina stand_1_4 at new, left with easeinright
+    show hina stand_1_4 at standard, left with easeinright
     H "No need to be so uptight. Come sit."
     show airi cross_1_2 at standard, right with dissolve
     A "You must be tired from being in the heat. I'll pour us some water."
@@ -113,7 +116,7 @@ label homestay:
 
     menu:
         "Look around the room":
-            scene bg photo at bg_standard with fade # Change to photograph later
+            scene bg photo at bg_standard with fade
             H "Oh? What's this?"
             H "How nostalgic…"
             H "I remember when Airi and I first went to the beach…"
@@ -124,7 +127,7 @@ label homestay:
     scene bg hina_room_day at bg_standard with fade
     show hina stand_1_2 at standard, left with dissolve
     show airi stand_1_3 at standard, right with easeinright
-    A "..." # Make sure this is a smile sprite
+    A "..."
     show airi stand_1_5 at standard, right with easeinright
     A "I got us juice."
     show hina stand_1_14 at new, left with dissolve
@@ -187,6 +190,7 @@ label homestay:
     H "It's not what it looks like-"
     A "Is that so?"
 
+    play music "audio/bgm_closeness.mp3" volume 0.5
     scene bg closeness_1 at bg_standard with fade
     "Airi reaches her hand out to caress Hina, just to see her reaction."
     "She didn't exactly know how to feel about all this, but she did know that she found it cute how much Hina seemed to need her presence."
@@ -209,6 +213,7 @@ label homestay:
     scene bg closeness_8 at bg_standard
     A "I don't know what you mean…"
     scene bg hina_room_day at bg_standard with fade
+    play music "audio/bgm_hina_room_day.mp3" volume 0.5
     show hina stand_1_10 at new, left with dissolve ### This is bugged and have to settle with basic positioning instead of dropped for haircut
     show airi cross_1_1 at standard, right with dissolve
     "Airi lies back and searches for a 'better' song on Hina's phone."
@@ -265,6 +270,7 @@ label homestay:
     H "Thank you, Ai-chan!!!"
     "Hina goes to hug Airi."
 
+    play music "audio/bgm_closeness.mp3" volume 0.5
     scene bg closeness_9 at bg_standard with fade
     A "Hina…"
     A "Don't get so close all of a sudden…"
@@ -287,6 +293,7 @@ label homestay:
     "Hina faints."
 
     scene bg hina_room_day at bg_standard with fade
+    play music "audio/bgm_hina_room_day.mp3" volume 0.5
     show airi think_1_1 at standard, center with dissolve
     A "Oh dear."
     A "Are you okay, Hina?"
@@ -316,6 +323,7 @@ label homestay:
     A "The pancakes are done."
 
     scene bg kitchen at bg_standard with fade
+    play music "audio/bgm_hina_room.mp3" volume 0.5 # reusing bgm
     show airi cross_1_1 at standard, right with dissolve
     show hina stand_1_2 at standard, left with dissolve
     "Airi brings a fork with a piece of pancake up to Hina's mouth."
@@ -417,14 +425,261 @@ label homestay_bad:
 
     return
 
-label outdoors:
-
-    H "It's okay, I'm fine. I've been wanting to enjoy the summer atmosphere together with Ai-chan."
-    A "Okay then, let's go somewhere! Did you have anywhere in mind?"
-
-    menu:
-        "Beach":
-            jump beach
-
 label beach:
+    show hina cross_1_5 at new, left with dissolve
+    H "It's okay, I'm fine. I've been wanting to enjoy the summer atmosphere together with Ai-chan."
+    show airi cross_1_1 at standard, right with dissolve
+    A "Okay then, let's go somewhere! Did you have anywhere in mind?"
+    show hina stand_1_16 at new, left with dissolve
+    H "Let's just walk around."
+    show airi think_1_7 at standard, right with dissolve
+    A "Fine with me."
+    show airi think_1_5 at standard, right with dissolve
+    A "Did you want to check out the shops nearby? There are some markets in the nearby park."
+    show hina stand_1_2 at standard, left with dissolve
+    H "Mhm! Sounds fun."
+
+    scene bg park at bg_standard with fade
+    play music "audio/bgm_park.mp3" volume 0.5
+
+    show hina think_1_10 at new, left with easeinright
+    show airi cross_1_7 at standard, right with easeinright
+    H "I didn't think it'd be so busy here…"
+    H "Hm?"
+    show hina cross_1_4 at new, left with dissolve
+    H "Ai-chan, come here~."
+    H "Look at this kitty, isn't it cute?"
+    show plush kitty at standard, center, up with dissolve
+    H "It looks like you."
+    show airi cross_1_5 at standard, right with dissolve
+    show hina cross_1_5 at new, left with dissolve
+    "Airi doesn't appear amused."
+    A "What's that supposed to mean?"
+    show airi cross_1_4 at standard, right with dissolve
+    show hina cross_1_3 at new, left with dissolve
+    A "...If I'm that kitten, then this one is you."
+    show plush bunny at standard, center, up with dissolve
+    "Airi points to a fluffy bunny decoration, sitting on the display shelf."
+    show hina think_1_13 at new, left with dissolve
+    H "Do I look like a bunny to you?"
+    show airi cross_1_8 at standard, right with dissolve
+    A "What makes you think I'm like that cat?"
+    show hina stand_1_6 at new, left with dissolve
+    H "..."
+    H "...Nothing. Never mind it."
+    hide hina stand_1_6 with easeoutleft
+
+    "Hina walks off ahead, not vocalizing the sentiment that cats remind her of Airi due to them being affectionate one second and prickly the next."
+    "They're both unpredictable beings, but that's an inside thought."
+    show airi cross_1_6 at standard, right with dissolve
+    "Airi watches Hina go off, but remains where she is."
+
+    show airi think_1_6 at standard, right with dissolve
+    A "Maybe I should get this as a gift."
+    A "Buy one, get one free?"
+    show airi think_1_10 at standard, right with dissolve
+    A "I could get the kitty too."
+    A "Then we'd match. Hina would be happy."
+    show airi think_1_4 at standard, right with dissolve
+    A "Excuse me! Could I purchase these?"
+
+    scene bg park at bg_standard with fade
+
+    show hina stand_1_2 at standard, left with dissolve
+    "Mission complete!"
+    "Airi catches up to Hina, stuffing away the matching decorations she just bought for the two."
+    show airi stand_1_5 at standard, right with easeinright
+    A "Hina~!"
+    A "Did you find anything you like?"
+    show hina cross_1_4 at new, left with dissolve
+    H "I got these rings. Aren't they cute?"
+    show airi stand_1_8 at standard, right with dissolve
+    A "Super cute."
+    H "Ai-chan, let's wear them together and take a selfie to remember."
+    show airi stand_1_6 at standard, right with dissolve
+    A "Alright."
+    "Click."
+    show hina cross_1_2 at new, left with dissolve
+    "Hina giggles."
+    show hina cross_1_7 at new, left with dissolve
+    H "I'm getting hungry…"
+    show airi think_1_4 at standard, right with dissolve
+    A "Let's stop at a cafe."
+
+    scene bg cafe at bg_standard with fade
+    play music "audio/bgm_cafe.mp3" volume 0.5
+    
+    show airi stand_1_5 at standard, right with easeinright
+    show hina stand_1_1 at standard, left with easeinright
+    A "Hina! They have double strawberry crepes here."
+    show hina stand_1_14 at new, left with dissolve
+    H "Eh? Do you like those?"
+    show airi stand_1_12 at standard, right with dissolve
+    "Airi stares obsessively at the menu."
+    show hina stand_1_2 at standard, left with dissolve
+    H "I'll order them for us."
+
+    scene bg cafe at bg_standard with fade
+
+    show hina stand_1_4 at standard, left with dissolve
+    show airi stand_1_11 at standard, right with dissolve
+    H "It looks so good!!"
+    show airi stand_1_5 at standard, right with dissolve
+    A "Right?"
+    show hina stand_1_9 at new, left with dissolve
+    H "Ish so sweeeet!!!!!!!!!!"
+    "The two of them munch on their pastries happily."
+    show hina think_1_14 at new, left with dissolve
+    "Hina's gaze shifts to a poster on the wall."
+    H "Something something… beach…"
+    show hina think_1_4 at new, left with dissolve
+    H "A drama is being filmed at a beach…"
+    show airi stand_1_10 at standard, right with dissolve
+    A "Have you not been there before?"
+    show hina stand_1_12 at new, left with dissolve
+    "Hina shakes her head."
+    show hina cross_1_3 at new, left with dissolve
+    H "It's been so long since I went to the sea in general."
+    show airi stand_1_8 at standard, right with dissolve
+    A "My friends and I often visit it. I'm familiar with the way."
+    A "Want to go? I'll take you."
+    show hina cross_1_4 at new, left with dissolve
+    H "I do!"
+
+    scene bg sunset at bg_standard with fade
+    play music "audio/bgm_beach.mp3" volume 0.3
+
+    show hina cross_1_4 at new, left with easeinright
+    H "Haah~! The breeze feels so nice…"
+    show airi cross_1_1 at standard, right with easeinright
+    A "I'm surprised you haven't visited here. It's so nearby, too."
+    show hina cross_1_1 at new, left with dissolve
+    H "I… don't usually go on planned outings much with Yuuko-chan and the others."
+    show hina cross_1_5 at new, left with dissolve
+    H "I much prefer to visit these kinds of places with you. Time like this spent with you is really precious to me…"
+    show airi cross_1_8 at standard, right with dissolve
+    A "Is that so? I'm happy to hear that."
+    show airi cross_1_3 at standard, right with dissolve
+    "Airi could not decide whether or not she reciprocated such a feeling, but it was nice to feel needed by a cute girl."
+    "While she was lost in thought, she looked up to see Hina wading in the water."
+    show airi cross_1_4 at standard, right with dissolve
+    A "Isn't it cold?"
+    show hina think_1_15 at new, left with dissolve
+    H "I want to find pretty seashells."
+    H "Want to look with me?"
+    show airi cross_1_6 at standard, right with dissolve
+    "Occupying her mind with a mundane task could distract her from her complex feelings towards Hina. It sounded like the perfect activity."
+    show airi cross_1_9 at standard, right with dissolve
+    A "I do."
+    "Airi stepped into the water after Hina, both their shoes soaked. An uncouth act, but a fulfilling one."
+    "In her idle moments, Airi often fantasized about the thought of drifting away with the waves, silently allowing herself to become submerged in the seawater."
+    show airi cross_1_7 at standard, right with dissolve
+    "She had a perfect and structured life, but maybe she lacked the ability to embrace and accept herself."
+    "All those ruminations appeared meaningless in comparison to the grand power of the waves clashing against each other. They could erase everything built up in a person's life within minutes."
+    show hina cross_1_4 at new, left with dissolve
+    H "Ai-chan, I love the beach." 
+    show airi cross_1_1 at standard, right with dissolve
+    A "I also love the beach."
+    show hina cross_1_15 at new, left with dissolve
+    H "Did you come across any pretty shells?"
+    "Hina holds out her hands, revealing her newfound collection of nature's ornaments from the shoreline. Airi does the same."
+    show hina cross_1_5 at new, left with dissolve
+    H "I guess you did, didn't you?"
+    show airi cross_1_9 at standard, right with dissolve
+    A "I suppose."
+    show hina cross_1_15 at new, left with dissolve
+    H "Well, I think they're pretty neat, hehe~⭐︎."
+    show hina stand_1_17 at new, left with dissolve
+    H "..."
+    show hina stand_1_15 at new, left with dissolve
+    H "...I love the beach and seashells, but I love you more than both of those things."
+    show hina stand_1_5 at new, left with dissolve
+    H "As time passes, seashells will erode and break down over time. The water is relentless. I can't help but feel afraid that Ai-chan will someday be swept away by the waves in the same manner."
+    show hina stand_1_7 at new, left with dissolve
+    H "You're very special to me, you know. I don't want you to disappear on me without warning one day."
+    show hina stand_1_14 at new, left with dissolve
+    H "I must sound silly, don't I?"
+    "Hina lets out a nervous laugh."
+    show airi stand_1_3 at standard, right with dissolve
+    A "...I'm not so fragile, Hina..."
+    A "...and neither is our relationship."
+    show hina stand_1_1 at standard, left with dissolve
+    show airi stand_1_8 at standard, right with dissolve
+    A "I want you to have faith in that."
+    "Even though she could not fully trust in her own words."
+    show airi stand_1_9 at standard, right with dissolve
+    A "I just get busy sometimes with the recent transition into high school, so we haven't been able to stick around each other as much."
+    show airi stand_1_7 at standard, right with dissolve
+    A "But, I'm still here, aren't I?"
+    show hina think_1_11 at new, left with dissolve
+    H "I know… I just can't help but miss what middle school was like."
+    show airi stand_1_2 at standard, right with dissolve
+    A "Aren't you getting too swept up in nostalgia?"
+    show hina stand_1_1 at standard, left with dissolve
+    H "Maybe, but I'm fine like this."
+    show hina stand_1_14 at new, left with dissolve
+    H "I like holding onto the memories I made with you."
+    "The roaring of the high-tide thins out the suffocating silence between the two."
+
+    show hina stand_1_15 at new, left with dissolve
+    show airi stand_1_6 at standard, right with dissolve
+    "For a moment, ocean breeze flows around Airi in just the right way."
+    "She looked breathtaking in the soft gleam of the sunset, especially to Hina."
+    "Hina takes out her phone, placing Airi in the center of the camera frame."
+    show airi stand_1_5 at standard, right with dissolve
+    "Airi notices, turning to face the lens, striking a cute pose."
+
+    show hina stand_1_16 at new, left with dissolve
+    H "Smile!"
+
+    show hina stand_1_15 at new, left with dissolve
+    "Click. Hina takes the photo. Another memory engraved in stone."
+    "Just like the other photos she has of Airi, she will hold this one close to her heart."
+    show hina stand_1_5 at new, left with dissolve
+    "This is the only way Hina knows how to feel close to Airi, minimizing the pain caused by the rift between them at school."
+    show hina stand_1_8 at new, left with dissolve
+    "Still, the crushing anxiety of returning to their distant relationship crumpled up Hina's face."
+    show hina stand_1_8 at new, left with dissolve
+    show airi think_1_10 at standard, right with dissolve
+    "Airi couldn't help but feel pity toward such a sight."
+    "She pulls out the trinkets bought from earlier at the marketplace."
+    show airi stand_1_5 at standard, right with dissolve
+    show plush2 kitty at standard, right, up with dissolve
+    A "Hina~. Nyan nyan—."
+    A "Kitty is speaking to you."
+    show airi stand_1_3 at standard, right with dissolve
+    A "What's wrong?"
+    "Airi hands Hina the bunny trinket."
+    show hina stand_1_6 at new, left with dissolve
+    "Hina fiddles with it for a split moment before using it as a puppet, covering her apprehensive face."
+    show plush bunny at standard, left, moreUp with dissolve
+    show hina stand_1_5 at new, left with dissolve
+    H "I don't want Ai-chan to go away."
+    show airi cross_1_4 at standard, right with dissolve
+    A "Bunny-chan, we will always be friends."
+    A "No matter how far apart we are, whether we are beyond or within the boundaries of life and death."
+    show airi cross_1_1 at standard, right with dissolve
+    A "That has been true, and always will be."
+    show airi cross_1_9 at standard, right with dissolve
+    A "We won't disappear."
+    "She presses the kitty ornament's lips against Hina's bunny."
+    A "Chu."
+    show hina stand_1_9 at new, left with hpunch
+    H "Huh!?"
+    show plush bunny at standard, left, up with dissolve
+    show airi cross_1_1 at standard, right with dissolve
+    A "You said they were like us, right?"
+    A "That's your birthday gift, Hina."
+    hide plush bunny with dissolve
+    hide plush2 kitty with dissolve
+    show hina stand_1_8 at new, left with dissolve
+    "Hina's face flusters."
+    show airi cross_1_2 at standard, right with dissolve
+    A "Ready to go home?"
+    show hina stand_1_15 at new, left with dissolve
+    H "Mhm…"
+
+    scene bg beach_end at bg_standard with fade
+    "Beach end - an eternal 'promise' from me to you."
+
     return
